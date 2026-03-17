@@ -104,8 +104,8 @@ const Theme = () => {
               focus:outline-none cursor-pointer opacity-0 absolute inset-0 z-10
               [&>option]:text-black [&>option]:bg-white dark:[&>option]:text-white dark:[&>option]:bg-gray-800"
             >
-              <option value="Light">Light</option>
-              <option value="Dark">Dark</option>
+              <option value="Light">{t("light")}</option>
+              <option value="Dark">{t("dark")}</option>
             </select>
           </SettingRow>
         </div>
