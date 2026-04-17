@@ -41,7 +41,7 @@ const Projects = () => {
 
 
   return (
-    <div className="w-full  py-5 flex flex-col bg-[#FFFFFF] dark:bg-[#000000] mt-2 dark:mt-1 h-full ">
+    <div className="w-full py-5 flex flex-col bg-[#FFFFFF] dark:bg-[#000000] mt-2 dark:mt-1 h-full transition-colors duration-300">
       <div className="px-2 xl:px-6">
         <div className="flex items-center  justify-between px-5 py-2 ">
           <h1 className="font-bold text-3xl text-[#000000] dark:text-[#F8F8F8]">
@@ -118,7 +118,7 @@ const Projects = () => {
 
         
       </div>
-      <div className="bg-[#FFFFFF] dark:bg-[#000000]  mt-5" >
+      <div className="bg-[#FFFFFF] dark:bg-[#000000] mt-5 transition-colors duration-500">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={currTab}

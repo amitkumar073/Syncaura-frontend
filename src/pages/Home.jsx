@@ -12,7 +12,7 @@ import Footer from '../components/home/Footer';
 
 export default function Home() {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: 'var(--bg-primary)' }}>
+    <div className="min-h-screen bg-white dark:bg-[#121212] transition-colors duration-500 text-black dark:text-white">
       <Navbar />
       <Hero />
       <StatsSection />

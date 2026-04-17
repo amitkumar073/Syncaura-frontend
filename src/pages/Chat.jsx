@@ -18,7 +18,7 @@ export default function Chat() {
 
 
   return (
-    <div className="h-[calc(100vh-3.3rem)] xl:h-[calc(100vh-4.9rem)] w-full mt-1 flex bg-gray-100">
+    <div className="h-[calc(100vh-3.3rem)] xl:h-[calc(100vh-4.9rem)] w-full mt-1 flex bg-gray-100 dark:bg-[#121212] transition-colors duration-500">
       <Sidebar
         chats={CHATS}
         selectedChat={selectedChat}
@@ -30,7 +30,7 @@ export default function Chat() {
         setOpen={setOpen}
         onBack={() => setSelectedChat(null)}
       />
-
+    
       <ProfilePanel
         isOpen={open}
         onClose={() => setOpen(false)}
