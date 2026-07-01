@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Mail, Lock, User } from "lucide-react";
-import { Eye, EyeOff } from "lucide-react";
+import { Mail, Lock, Eye, EyeOff } from "lucide-react";
 
 const GoogleIcon = () => (
   <svg width="20" height="20" viewBox="0 0 48 48">
@@ -24,12 +23,10 @@ const GoogleIcon = () => (
   </svg>
 );
 
-// onSwitchToLogin: optional callback to navigate to the Login page (e.g. via react-router)
-export default function Signup() {
+// onSwitchToSignup: optional callback to navigate to the Signup page (e.g. via react-router)
+export default function Login() {
   const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirm, setShowConfirm] = useState(false);
-  const [agreed, setAgreed] = useState(false);
 
   return (
     <div style={styles.page}>
@@ -39,12 +36,12 @@ export default function Signup() {
             <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
               <path
                 d="M12 2L21 7V17L12 22L3 17V7L12 2Z"
-                fill="url(#grad2)"
+                fill="url(#grad1)"
                 stroke="white"
                 strokeWidth="0.5"
               />
               <defs>
-                <linearGradient id="grad2" x1="3" y1="2" x2="21" y2="22">
+                <linearGradient id="grad1" x1="3" y1="2" x2="21" y2="22">
                   <stop offset="0%" stopColor="#a78bfa" />
                   <stop offset="100%" stopColor="#6d28d9" />
                 </linearGradient>
@@ -53,27 +50,10 @@ export default function Signup() {
           </div>
         </div>
 
-        <h1 style={styles.title}>Create Account 🚀</h1>
-        <p style={styles.subtitle}>Sign up and start your journey with us</p>
+        <h1 style={styles.title}>Welcome Back 👋</h1>
+        <p style={styles.subtitle}>Login to your account and continue</p>
 
         <form style={styles.form} onSubmit={(e) => e.preventDefault()}>
-          <div style={styles.row}>
-            <div style={styles.fieldHalf}>
-              <label style={styles.label}>First Name</label>
-              <div style={styles.inputWrap}>
-                <User size={18} color="#9ca3af" />
-                <input type="text" placeholder="First name" style={styles.input} />
-              </div>
-            </div>
-            <div style={styles.fieldHalf}>
-              <label style={styles.label}>Last Name</label>
-              <div style={styles.inputWrap}>
-                <User size={18} color="#9ca3af" />
-                <input type="text" placeholder="Last name" style={styles.input} />
-              </div>
-            </div>
-          </div>
-
           <div style={styles.field}>
             <label style={styles.label}>Email</label>
             <div style={styles.inputWrap}>
@@ -88,7 +68,7 @@ export default function Signup() {
               <Lock size={18} color="#9ca3af" />
               <input
                 type={showPassword ? "text" : "password"}
-                placeholder="Create a password"
+                placeholder="Enter your password"
                 style={styles.input}
               />
               <button
@@ -102,47 +82,14 @@ export default function Signup() {
             </div>
           </div>
 
-          <div style={styles.field}>
-            <label style={styles.label}>Confirm Password</label>
-            <div style={styles.inputWrap}>
-              <Lock size={18} color="#9ca3af" />
-              <input
-                type={showConfirm ? "text" : "password"}
-                placeholder="Confirm your password"
-                style={styles.input}
-              />
-              <button
-                type="button"
-                onClick={() => setShowConfirm((v) => !v)}
-                style={styles.eyeBtn}
-                aria-label="Toggle confirm password visibility"
-              >
-                {showConfirm ? <EyeOff size={18} color="#9ca3af" /> : <Eye size={18} color="#9ca3af" />}
-              </button>
-            </div>
+          <div style={styles.forgotWrap}>
+            <a href="#" style={styles.link}>
+              Forgot Password?
+            </a>
           </div>
 
-          <label style={styles.checkboxRow}>
-            <input
-              type="checkbox"
-              checked={agreed}
-              onChange={(e) => setAgreed(e.target.checked)}
-              style={styles.checkbox}
-            />
-            <span style={styles.checkboxText}>
-              I agree to the{" "}
-              <a href="#" style={styles.link}>
-                Terms of Service
-              </a>{" "}
-              and{" "}
-              <a href="#" style={styles.link}>
-                Privacy Policy
-              </a>
-            </span>
-          </label>
-
           <button type="submit" style={styles.primaryBtn}>
-            Sign Up
+            Login
           </button>
 
           <div style={styles.dividerWrap}>
@@ -157,16 +104,16 @@ export default function Signup() {
           </button>
 
           <p style={styles.switchText}>
-            Already have an account?{" "}
+            Don't have an account?{" "}
             <a
               href="#"
               style={styles.switchLink}
               onClick={(e) => {
                 e.preventDefault();
-                navigate("/");
+                navigate("/signup");
               }}
             >
-              Login
+              Sign up
             </a>
           </p>
         </form>
@@ -202,7 +149,7 @@ const styles = {
   },
   card: {
     width: "100%",
-    maxWidth: "440px",
+    maxWidth: "420px",
     background: "#ffffff",
     borderRadius: "20px",
     padding: "40px 36px",
@@ -221,9 +168,7 @@ const styles = {
   title: { fontSize: "26px", fontWeight: 800, color: "#111827", margin: "0 0 6px 0" },
   subtitle: { fontSize: "14.5px", color: "#6b7280", margin: "0 0 28px 0" },
   form: { display: "flex", flexDirection: "column", gap: "18px" },
-  row: { display: "flex", gap: "12px", flexWrap: "wrap" },
   field: { display: "flex", flexDirection: "column", gap: "8px" },
-  fieldHalf: { display: "flex", flexDirection: "column", gap: "8px", flex: "1 1 140px", minWidth: 0 },
   label: { fontSize: "13.5px", fontWeight: 700, color: "#1f2937" },
   inputWrap: {
     display: "flex",
@@ -245,10 +190,8 @@ const styles = {
     minWidth: 0,
   },
   eyeBtn: { background: "none", border: "none", padding: 0, display: "flex", cursor: "pointer" },
+  forgotWrap: { display: "flex", justifyContent: "flex-end", marginTop: "-6px" },
   link: { color: "#7c3aed", fontSize: "13.5px", fontWeight: 600, textDecoration: "none" },
-  checkboxRow: { display: "flex", alignItems: "flex-start", gap: "10px", cursor: "pointer" },
-  checkbox: { marginTop: "3px", width: "16px", height: "16px", accentColor: "#7c3aed", cursor: "pointer" },
-  checkboxText: { fontSize: "13.5px", color: "#4b5563", lineHeight: 1.5 },
   primaryBtn: {
     border: "none",
     borderRadius: "12px",
