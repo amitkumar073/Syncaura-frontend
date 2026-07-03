@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
 import { Sun, Moon } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { useDarkMode } from "../../hooks/useDarkMode";
-import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const { theme, toggleTheme } = useDarkMode();
   const [activeSection, setActiveSection] = useState('home');
+//   const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -138,7 +140,7 @@ const Navbar = () => {
           
           <Link to="/sign-up">
             <button
-              className="px-4 py-1 text-s font-medium rounded-[10px]"
+              className="px-4 py-1 text-[13px] font-medium rounded-[10px]"
               style={{
                 backgroundColor: "var(--accent-color)",
                 color: "var(--bg-primary)",

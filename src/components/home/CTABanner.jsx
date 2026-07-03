@@ -1,8 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import ctaTeamMeeting from "../../assets/cta-team-meeting.png";
 import { Link } from "react-router-dom";
 
 const CTABanner = () => {
+  const navigate = useNavigate();
   return (
     <section className="w-full py-8 md:py-16" style={{ backgroundColor: 'var(--bg-primary)' }}>
       <div className="max-w-8xl mx-auto px-4 md:px-6 lg:px-24">
