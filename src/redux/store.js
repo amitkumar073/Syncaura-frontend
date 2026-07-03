@@ -9,6 +9,7 @@ import languageReducer from "./slices/languageSlice";
 import reportReducer from "./slices/reportSlice";
 import noticeReducer from "./slices/noticeSlice";
 import complaintReducer from "./slices/complaintSlice";
+import taskReducer from "./slices/taskSlice";
 
 export const store = configureStore({
   reducer: {
@@ -23,5 +24,6 @@ export const store = configureStore({
     auth: authReducer,
     notice: noticeReducer,
     complaint: complaintReducer,
+    tasks: taskReducer,
   },
 });
