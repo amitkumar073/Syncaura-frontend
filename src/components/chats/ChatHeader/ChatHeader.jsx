@@ -1,4 +1,5 @@
 import { ArrowLeft, MoreVertical, Phone, Search } from "lucide-react";
+import { toast } from "react-toastify";
 import Avatar from "../Avatar";
 import { useState, useRef, useEffect } from "react";
 
@@ -21,15 +22,15 @@ export default function ChatHeader({ chat, onBack, setOpen }) {
     setOpen(true);
   };
 
-  const handlePhoneClick = (e) => {
-    e.stopPropagation();
-    console.log("Phone clicked");
-  };
+    const handlePhoneClick = (e) => {
+      e.stopPropagation();
+      toast.info("Calling feature is not implemented yet.");
+    };
 
-  const handleSearchClick = (e) => {
-    e.stopPropagation();
-    console.log("Search clicked");
-  };
+    const handleSearchClick = (e) => {
+      e.stopPropagation();
+      toast.info("Search feature is not implemented yet.");
+    };
 
   const handleMoreClick = (e) => {
     e.stopPropagation();
@@ -49,19 +50,20 @@ export default function ChatHeader({ chat, onBack, setOpen }) {
         setOpen(true);
         break;
       case "muteNotifications":
-        console.log("Mute notifications for:", chat.name);
+        toast.info("Mute Notifications feature is not implemented yet.");
         // Add mute logic
         break;
       case "clearChat":
-        console.log("Clear chat for:", chat.name);
+        toast.info("Clear Chat feature is not implemented yet.");
         // Add clear chat logic
         break;
       case "deleteChat":
-        console.log("Delete chat for:", chat.name);
+       toast.info("Delete Chat feature is not implemented yet.");
         // Add delete chat logic
         break;
       case "blockUser":
-        console.log("Block user:", chat.name);
+          toast.info("Block User feature is not implemented yet.");
+
         // Add block user logic
         break;
     }

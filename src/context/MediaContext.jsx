@@ -26,24 +26,25 @@ export const MediaProvider = ({ children }) => {
   };
 
   // 🎥 Start Camera + Mic
-  const startMedia = async () => {
-    const { hasMic, hasCamera } = await checkDevices();
+ 
+    const startMedia = async () => {
+      try {
+        const { hasMic, hasCamera } = await checkDevices();
 
-    if (!hasMic && !hasCamera) {
-      setIsMicOn(false);
-      setIsCameraOn(false);
-      throw new Error("no-devices");
-    }
+        if (!hasMic && !hasCamera) {
+          setIsMicOn(false);
+          setIsCameraOn(false);
+          throw new Error("no-devices");
+        }
 
-    try {
-      const stream = await getCameraAndMic();
-      setLocalStream(stream);
-    } catch (err) {
-      setIsMicOn(false);
-      setIsCameraOn(false);
-      throw new Error("permission-denied");
-    }
-  };
+        const stream = await getCameraAndMic();
+        setLocalStream(stream);
+      } catch (err) {
+        setIsMicOn(false);
+        setIsCameraOn(false);
+        throw err;
+      }
+    };
 
   // 🎤 Toggle Mic
   const toggleMic = () => {
